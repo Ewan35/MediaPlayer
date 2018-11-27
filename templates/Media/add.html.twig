@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+
+    <h1>Ajouter des medias!</h1>
+
+    {{ form_start(mediaForm, {'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form_widget(mediaForm) }}
+    <button type="submit">Valider!</button>
+    {{ form_end(mediaForm) }}
+
+{% endblock %}
+

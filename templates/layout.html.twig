@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Media player{%  endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+        <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('medias/RFM_logo_2011.png') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="icon" href="{{ asset('medias/RFM_logo_2011.png') }}">
+    </head>
+    <body>
+    <div class="container">
+        <header>
+            {% include('inc/nav.html.twig') %}
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer>
+            © {{ "now"|date("Y") }} Media player
+        </footer>
+    </div>
+    </body>
+</html>

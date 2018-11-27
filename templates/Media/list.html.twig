@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <h1>Dernier media <a href="{{ path('media_add') }}" class="oi add-media" data-glyph="plus" title="Add media"></a></h1>
+    <div class="media-list">
+        {% for media in medias %}
+            <div>
+                {{ media.name }}
+                <a href="{{ path('media_update', {'id' : media.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update media" data-id="{{ media.id }}" ></a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="{{ path('media_add') }}">Ajouter</a> </li>
+        </ul>
+    </nav>
+
+{% endblock %}
