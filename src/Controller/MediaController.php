@@ -81,7 +81,7 @@ class MediaController extends Controller
      * @Route("/media/del", name="media_del_default", defaults={"id":0})
      * @Route("/media/del/{id}", name="media_del")
      */
-    public function del(EntityManagerInterface $em,Media $media)
+    public function delete(EntityManagerInterface $em,Media $media)
     {
         //vérification côté serveur
         if(count($media->getIdeas()) > 0){

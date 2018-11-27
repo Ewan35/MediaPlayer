@@ -155,6 +155,7 @@ category
     padding: 10px 5px;
     margin: 10px 0;
     position: relative;
+    border-radius: 6px;
 }
 
 .media-meta {
@@ -163,18 +164,20 @@ category
 }
 
 .delete-media{
-    color:#FF0000;
+    color:#000000;
     position: absolute;
     right:5px;
-    margin-top: 0.2em;
+    margin-top: -3px;
 }
 
 .update-media{
-    color:#00FF00;
+    color:#000000;
     position: absolute;
     right:35px;
+    margin-right: 5em;
     margin-top: 0.2em;
 }
+
 
 
 /**
