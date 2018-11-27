@@ -76,7 +76,7 @@ class Media
         return $this->dateCreated;
     }
 
-    public function setDateCreated(Date $dateCreated): self
+    public function setDateCreated(\DateTime $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
 

@@ -41,6 +41,11 @@ class Utilisateur
      */
     private $password;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $IsAdmin;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +107,18 @@ class Utilisateur
     public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    public function getIsAdmin(): ?bool
+    {
+        return $this->IsAdmin;
+    }
+
+    public function setIsAdmin(bool $IsAdmin): self
+    {
+        $this->IsAdmin = $IsAdmin;
 
         return $this;
     }
