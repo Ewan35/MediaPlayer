@@ -26,7 +26,6 @@ class MediaRepository extends ServiceEntityRepository
             ->addSelect('m.name', 'm.id')
             ->orderBy('m.name','ASC');
         return $qb->getQuery()->getResult();
-
     }
 
     // /**

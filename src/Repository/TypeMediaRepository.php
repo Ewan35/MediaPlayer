@@ -19,6 +19,13 @@ class TypeMediaRepository extends ServiceEntityRepository
         parent::__construct($registry, TypeMedia::class);
     }
 
+    public function findAllFull(){
+        $qb = $this->createQueryBuilder('m')
+            ->addSelect('m.name', 'm.id')
+            ->orderBy('m.name','ASC');
+        return $qb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return TypeMedia[] Returns an array of TypeMedia objects
     //  */
