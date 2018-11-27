@@ -191,6 +191,10 @@ form input, form textarea, form select {
     min-width: 300px;
 }
 
+form div div input {
+    border-radius: 30px;
+}
+
 form select {
     padding-top: 0.25em;
     padding-bottom: 0.25em;
