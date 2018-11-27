@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MediaRepository")
@@ -70,12 +71,12 @@ class Media
         return $this;
     }
 
-    public function getDateCreated(): ?string
+    public function getDateCreated(): ?\DateTimeInterface
     {
         return $this->dateCreated;
     }
 
-    public function setDateCreated(string $dateCreated): self
+    public function setDateCreated(Date $dateCreated): self
     {
         $this->dateCreated = $dateCreated;
 

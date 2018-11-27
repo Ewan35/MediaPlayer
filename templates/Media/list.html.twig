@@ -6,15 +6,11 @@
         {% for media in medias %}
             <div>
                 {{ media.name }}
-                <a href="{{ path('media_update', {'id' : media.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update media" data-id="{{ media.id }}" ></a>
+                <a href="{{ path('media_update', {'id' : media.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update media" data-id="{{ media.id }}" >Modifier</a>
             </div>
         {% endfor %}
     </div>
 
-    <nav>
-        <ul>
-            <li><a href="{{ path('media_add') }}">Ajouter</a> </li>
-        </ul>
-    </nav>
+    <button><a href="{{ path('media_add') }}">Ajouter</a></button>
 
 {% endblock %}
