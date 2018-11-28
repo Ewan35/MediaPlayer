@@ -131,6 +131,11 @@ list & detail pages
     margin-top: 10px;
 }
 
+body {
+    background: url("../medias/pattern.png");
+}
+
+
 h5 {
     margin: 0;
     text-decoration: none;
