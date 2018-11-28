@@ -2,11 +2,11 @@
 
 {% block main %}
 
-    <h1>Modifier un genre</h1>
+    <h1>Update genre</h1>
 
     {{ form_start(GenreForm, {'attr': {'novalidate': 'novalidate'}} ) }}
     {{ form_widget(GenreForm) }}
-    <button type="submit">Valider</button>
+    <button type="submit">Validate</button>
     {{ form_end(GenreForm) }}
 
 {% endblock %}
