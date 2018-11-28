@@ -1,13 +1,13 @@
 security:
     encoders:
-        App\Entity\User:
+        App\Entity\Utilisateur:
             algorithm: bcrypt
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Entity\Utilisateur
                 property: username
     firewalls:
         dev:
@@ -18,12 +18,12 @@ security:
             provider: app_user_provider
             anonymous: true
             form_login:
-                login_path: login
-                check_path: login
+                login_path: main_login
+                check_path: main_login
                 csrf_token_generator: security.csrf.token_manager
             logout_on_user_change: true
             logout:
-                path: logout
+                path: main_logout
                 target: main_index
 
             # activate different ways to authenticate

@@ -80,17 +80,16 @@ class MediaController extends Controller
      * @Route("/media/del", name="media_del_default", defaults={"id":0})
      * @Route("/media/del/{id}", name="media_del")
      */
-    public function delete(EntityManagerInterface $em,Media $media)
+    public function delete(EntityManagerInterface $em,$id)
     {
-        //vérification côté serveur
-        if(count($media->getIdeas()) > 0){
-            $this->addFlash('error', "You can't delete this media !");
-            return $this->redirectToRoute('media_list');
+        $media = $em->find(Media::class,$id);
+        if (!$media) {
+            throw $this->createNotFoundException('Aucun fichier en base a cet id');
+        }else{
+            $media->setIsPublished(false);
+            $em->persist($media);
+            $em->flush();
         }
-
-        $em->remove($media);
-        $em->flush();
-        $this->addFlash("success", "Media successfully deleted!");
         return $this->redirectToRoute("media_list");
     }
 }
