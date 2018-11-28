@@ -3,11 +3,12 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UtilisateurRepository")
  */
-class Utilisateur
+class Utilisateur implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -45,6 +46,11 @@ class Utilisateur
      * @ORM\Column(type="boolean")
      */
     private $IsAdmin;
+
+    /**
+     * @ORM\Column(type="json_array")
+     */
+    private $roles = [];
 
     public function getId(): ?int
     {
@@ -121,5 +127,26 @@ class Utilisateur
         $this->IsAdmin = $IsAdmin;
 
         return $this;
+    }
+
+    public function getRoles()
+    {
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function eraseCredentials()
+    {
     }
 }
