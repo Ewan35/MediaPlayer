@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <h1>Genres</h1>
+    <div class="media-list">
+        {% for genre in genres %}
+            <div>
+                {{ genre.name }}
+                <a href="{{ path('Genre_update', {'id' : genre.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update genre" data-id="{{ genre.id }}" >Modifier</a>
+                <button class="oi oi-delete delete-media delete-modal" data-glyph="circle-x" title="Delete media" data-id="{{ genre.id }}" >Supprimer</button>
+            </div>
+        {% endfor %}
+    </div>
+
+    <button><a href="{{ path('Genre_add') }}">Ajouter</a></button>
+
+{% endblock %}

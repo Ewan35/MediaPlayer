@@ -19,6 +19,14 @@ class GenreRepository extends ServiceEntityRepository
         parent::__construct($registry, Genre::class);
     }
 
+    public function findAllFull(){
+
+        $qb = $this->createQueryBuilder('m')
+            ->addSelect('m.name', 'm.id', 'm.TypeMedia')
+            ->orderBy('m.name','ASC');
+        return $qb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return Genre[] Returns an array of Genre objects
     //  */

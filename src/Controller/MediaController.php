@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Media;
 use App\Form\AddMediaType;
-use App\Form\MediaType;
 use App\Form\UpdateMediaType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

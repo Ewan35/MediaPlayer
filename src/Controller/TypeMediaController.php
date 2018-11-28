@@ -11,7 +11,7 @@ namespace App\Controller;
 
 use App\Entity\TypeMedia;
 use App\Form\AddTypeMediaType;
-use App\Form\UpdateMediaType;
+use App\Form\UpdateTypeMediaType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -64,7 +64,7 @@ class TypeMediaController extends Controller
     public function update(TypeMedia $typeMedia, Request $request, EntityManagerInterface $em)
     {
 
-        $form = $this->createForm(UpdateMediaType::class,$typeMedia);
+        $form = $this->createForm(UpdateTypeMediaType::class,$typeMedia);
 
         $form->handleRequest($request);
 

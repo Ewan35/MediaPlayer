@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+
+    <h1>Modifier un genre</h1>
+
+    {{ form_start(GenreForm, {'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form_widget(GenreForm) }}
+    <button type="submit">Valider</button>
+    {{ form_end(GenreForm) }}
+
+{% endblock %}
+
