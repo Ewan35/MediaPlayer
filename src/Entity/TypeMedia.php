@@ -17,7 +17,7 @@ class TypeMedia
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $name;
 
@@ -34,6 +34,18 @@ class TypeMedia
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->Genre;
+    }
+
+    public function setGenre(string $Genre): self
+    {
+        $this->Genre = $Genre;
 
         return $this;
     }

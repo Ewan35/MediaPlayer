@@ -42,6 +42,20 @@ class Media
      */
     private $extension;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @var Genre
+     * @ORM\ManyToOne(targetEntity="App\Entity\Genre")
+     */
+    private $Genre;
+
+    /**
+     * @ORM\Column(type="integer")
+     * @var Utilisateur
+     * @ORM\ManyToOne(targetEntity="App\Entity\Utilisateur")
+     */
+    private $User;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +117,30 @@ class Media
     public function setExtension(string $extension): self
     {
         $this->extension = $extension;
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->Genre;
+    }
+
+    public function setGenre(string $Genre): self
+    {
+        $this->Genre = $Genre;
+
+        return $this;
+    }
+
+    public function getUser(): ?string
+    {
+        return $this->User;
+    }
+
+    public function setUser(string $User): self
+    {
+        $this->User = $User;
 
         return $this;
     }

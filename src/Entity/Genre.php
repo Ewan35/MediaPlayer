@@ -21,6 +21,13 @@ class Genre
      */
     private $name;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @var TypeMedia
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypeMedia")
+     */
+    private $TypeMedia;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +41,18 @@ class Genre
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTypeMedia(): ?string
+    {
+        return $this->TypeMedia;
+    }
+
+    public function setTypeMedia(string $TypeMedia): self
+    {
+        $this->TypeMedia = $TypeMedia;
 
         return $this;
     }
