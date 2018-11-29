@@ -2,23 +2,28 @@
 
 {% block main %}
     <h2>Medias </h2>
-    <div class="media-list">
+    <div class="media-list row">
         {% for media in medias %}
-            <div class="col-md-4">
-                <div class="card mb-4 box-shadow">
+            <div class="col-md-4" style="border:none;">
+                <div class="card mb-4 box-shadow divMedia">
                     {{ media.name }}
                     <img class="card-img-top"
                          data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
                          alt="{{ media.name }}" style="height: 225px; width: 100%; display: block;"
                          src="{{ asset('medias/'  ~ media.picture) }}"
                          data-holder-rendered="true">
-                <a href="{{ path('media_update', {'id' : media.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update media" data-id="{{ media.id }}" >Update</a>
-                <button class="oi oi-delete delete-media delete-modal" data-glyph="circle-x" title="Delete media" data-id="{{ media.id }}" >Delete</button>
+                    <div class="d-flex justify-content-between align-items-center" style="border:none;">
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-update"><a
+                                    href="{{ path("media_update", {"id": media.id}) }}">Update</a></button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary btn-delete"><a
+                                    href="{{ path("media_del", {"id": media.id}) }}">Delete</a>
+                        </button>
+                    </div>
                 </div>
             </div>
         {% endfor %}
     </div>
 
-    <button><a href="{{ path('media_add') }}">Add</a></button>
+    <button class="btnAdd orange"><a href="{{ path('media_add') }}">Add</a></button>
 
 {% endblock %}
