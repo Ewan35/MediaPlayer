@@ -84,7 +84,6 @@ class GenreController extends Controller
         if (!$genre) {
             throw $this->createNotFoundException('Aucun fichier en base a cet id');
         }else{
-            $genre->setIsPublished(false);
             $em->persist($genre);
             $em->flush();
         }

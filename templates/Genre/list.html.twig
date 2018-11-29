@@ -2,13 +2,18 @@
 
 {% block main %}
     <h1>Genres</h1>
-    <div class="media-list">
+    <div class="genre-list">
         {% for genre in genres %}
-            <div>
-                {{ genre.name }}
-                <a href="{{ path('Genre_update', {'id' : genre.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update genre" data-id="{{ genre.id }}" >Update</a>
-                <button class="oi oi-delete delete-media delete-modal" data-glyph="circle-x" title="Delete media" data-id="{{ genre.id }}" >Delete</button>
-            </div>
+                <div class="d-flex justify-content-between align-items-center" style="border:-1px;">
+                    {{ genre.name }}
+                    <div style="border: none">
+                    <button type="button" class="btn btn-sm btn-outline-secondary btn-update"><a
+                                href="{{ path("Genre_update", {"id": genre.id}) }}">Update</a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary btn-delete"><a
+                                href="{{ path("Genre_del", {"id": genre.id}) }}">Delete</a>
+                    </button>
+                    </div>
+                </div>
         {% endfor %}
     </div>
 

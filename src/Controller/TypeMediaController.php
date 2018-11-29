@@ -87,7 +87,7 @@ class TypeMediaController extends Controller
      * @Route("/TypeMedia/del", name="TypeMedia_del_default", defaults={"id":0})
      * @Route("/TypeMedia/del/{id}", name="TypeMedia_del")
      */
-    public function delete(EntityManagerInterface $em,TypeMedia $TypeMedia)
+    public function del(EntityManagerInterface $em,TypeMedia $TypeMedia)
     {
         //vérification côté serveur
         if(count($TypeMedia->getIdeas()) > 0){

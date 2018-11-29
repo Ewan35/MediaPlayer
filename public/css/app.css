@@ -161,8 +161,18 @@ category
     margin: 10px 0;
     position: relative;
     border-radius: 4px;
+}
+
+.genre-list div{
+    display: block;
+    border: 1px solid #D3D3D3;
+    padding: 0px 5px;
+    margin: 10px 0;
+    position: relative;
+    border-radius: 4px;
     background: #f7f7f7;
 }
+
 
 .media-meta {
     font-style: italic;
