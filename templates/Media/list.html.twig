@@ -4,7 +4,7 @@
     <h1>Last medias <a href="{{ path('media_add') }}" class="oi add-media" data-glyph="plus" title="Add media"></a></h1>
     <div class="media-list">
         {% for media in medias %}
-            <div style="background: lightgray;border-style: outset;">
+            <div class="divMedia">
                 {{ media.name }}
                 <a href="{{ path('media_update', {'id' : media.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update media" data-id="{{ media.id }}" >Update</a>
                 <button class="oi oi-delete delete-media delete-modal" data-glyph="circle-x" title="Delete media" data-id="{{ media.id }}" >Delete</button>
