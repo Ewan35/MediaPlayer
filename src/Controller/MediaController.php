@@ -58,7 +58,7 @@ class MediaController extends Controller
     {
 
         $form = $this->createForm(UpdateMediaType::class,$media);
-
+        $media->setDateCreated(now);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){

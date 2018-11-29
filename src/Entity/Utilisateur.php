@@ -43,11 +43,6 @@ class Utilisateur implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $IsAdmin;
-
-    /**
      * @ORM\Column(type="json_array")
      */
     private $roles = [];
@@ -113,18 +108,6 @@ class Utilisateur implements UserInterface
     public function setPassword(string $password): self
     {
         $this->password = $password;
-
-        return $this;
-    }
-
-    public function getIsAdmin(): ?bool
-    {
-        return $this->IsAdmin;
-    }
-
-    public function setIsAdmin(bool $IsAdmin): self
-    {
-        $this->IsAdmin = $IsAdmin;
 
         return $this;
     }

@@ -14,7 +14,6 @@ class AddMediaType extends AbstractType
         $builder
             ->add('name', null, ['label' => 'Media name'])
             ->add('description')
-            ->add('dateCreated')
             ->add('genre')
             ->add('user')
             ->add('picture')

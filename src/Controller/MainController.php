@@ -47,7 +47,7 @@ class MainController extends Controller
             $em->persist($user);
             $em->flush();
 
-            return $this->redirectToRoute('main_index');
+            return $this->redirectToRoute('main_home');
 
         }
 
