@@ -19,6 +19,9 @@ class UtilisateurRepository extends ServiceEntityRepository
         parent::__construct($registry, Utilisateur::class);
     }
 
+
+
+
     // /**
     //  * @return Utilisateur[] Returns an array of Utilisateur objects
     //  */
@@ -36,15 +39,13 @@ class UtilisateurRepository extends ServiceEntityRepository
     }
     */
 
-    /*
-    public function findOneBySomeField($value): ?Utilisateur
+
+    public function findOneBySomeField($value)
     {
-        return $this->createQueryBuilder('u')
+        $qb = $this->createQueryBuilder('u')
             ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+            ->setParameter('val', $value);
+        return $qb->getQuery()->getResult();
     }
-    */
+
 }

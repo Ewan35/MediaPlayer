@@ -26,7 +26,8 @@ class MainController extends Controller
         $user = $this->getUser();
         return $this->render("main/home.html.twig", [
             'user' => $user,
-            'userConnected' => $this->isConnected()
+            'userConnected' => $this->isConnected(),
+            'isAdmin' => $this->isAdmin()
         ]);
     }
 
@@ -57,7 +58,8 @@ class MainController extends Controller
 
         return $this->render('main/register.html.twig', [
             'form' => $form->createView(),
-            'userConnected' => $this->isConnected()
+            'userConnected' => $this->isConnected(),
+                        'isAdmin' => $this->isAdmin()
         ]);
 
     }
@@ -76,7 +78,8 @@ class MainController extends Controller
         return $this->render('main/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
-            'userConnected' => $this->isConnected()
+            'userConnected' => $this->isConnected(),
+            'isAdmin' => $this->isAdmin()
         ));
     }
 
@@ -94,6 +97,22 @@ class MainController extends Controller
         }
             else {
                 return true;
+            }
+        }
+
+        public function isAdmin() {
+            $user = $this->getUser();
+            if ($user != null){
+                $role = $user->getRoles();
+                if ($role[0] == 'ROLE_ADMIN'){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
             }
         }
 }

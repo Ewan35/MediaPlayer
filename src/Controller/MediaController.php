@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Media;
+use App\Entity\Utilisateur;
 use App\Form\AddMediaType;
 use App\Form\UpdateMediaType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,7 +22,8 @@ class MediaController extends Controller
 
         return $this->render('media/list.html.twig', [
             'medias' => $medias,
-            'userConnected' => $this->isConnected()
+            'userConnected' => $this->isConnected(),
+            'isAdmin' => $this->isAdmin()
         ]);
     }
 
@@ -49,7 +51,8 @@ class MediaController extends Controller
 
         return $this->render('media/add.html.twig', [
             'mediaForm' => $form->createView(),
-            'userConnected' => $this->isConnected()
+            'userConnected' => $this->isConnected(),
+            'isAdmin' => $this->isAdmin()
 
         ]);
     }
@@ -73,7 +76,8 @@ class MediaController extends Controller
 
         return $this->render('media/update.html.twig', [
             'mediaForm' => $form->createView(),
-            'userConnected' => $this->isConnected()
+            'userConnected' => $this->isConnected(),
+            'isAdmin' => $this->isAdmin()
         ]);
     }
 
@@ -102,4 +106,21 @@ class MediaController extends Controller
             return true;
         }
     }
+
+    public function isAdmin() {
+        $user = $this->getUser();
+        if ($user != null){
+            $role = $user->getRoles();
+            if ($role[0] == 'ROLE_ADMIN'){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+
 }
