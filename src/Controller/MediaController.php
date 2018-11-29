@@ -17,14 +17,12 @@ class MediaController extends Controller
      */
     public function list(EntityManagerInterface $em)
     {
-
         $medias = $em->getRepository(Media::class)->findAllFull();
 
         return $this->render('media/list.html.twig', [
             'medias' => $medias,
         ]);
     }
-
 
     /**
      * @Route("/media/add", name="media_add")
@@ -56,7 +54,6 @@ class MediaController extends Controller
      */
     public function update(Media $media, Request $request, EntityManagerInterface $em)
     {
-
         $form = $this->createForm(UpdateMediaType::class,$media);
         $media->setDateCreated(now);
         $form->handleRequest($request);
@@ -69,7 +66,6 @@ class MediaController extends Controller
             $this->addFlash('success', 'Media successfully updated!');
             return $this->redirectToRoute('media_list');
         }
-
 
         return $this->render('media/update.html.twig', [
             'mediaForm' => $form->createView()

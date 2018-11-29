@@ -200,7 +200,7 @@ form input, form textarea, form select {
 }
 
 form div div input {
-    border-radius: 30px;
+
 }
 
 form select {
@@ -400,6 +400,14 @@ form ul > li {
     margin-left: 6em;
 }
 
+.btn-update a {
+    text-decoration: none;
+}
+
+.btn-delete a {
+    text-decoration: none;
+}
+
 .btnAdd {
     border-radius: 5px;
     padding: 5px 15px;
@@ -427,4 +435,27 @@ form ul > li {
 
 .orange:hover {
     background-color: #FF983C;
+}
+
+
+.btnValider {
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 19px;
+    text-decoration: none;
+    margin: 10px;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.btnValider a {
+    text-decoration: none;
+}
+
+.btn:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
 }
