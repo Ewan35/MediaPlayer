@@ -55,7 +55,7 @@ class MediaController extends Controller
     public function update(Media $media, Request $request, EntityManagerInterface $em)
     {
         $form = $this->createForm(UpdateMediaType::class,$media);
-
+        $media->setDateCreated(now);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
