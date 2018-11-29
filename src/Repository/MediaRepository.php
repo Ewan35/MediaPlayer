@@ -23,7 +23,6 @@ class MediaRepository extends ServiceEntityRepository
     public function findAllFull(){
 
         $qb = $this->createQueryBuilder('m')
-            ->addSelect('m.name', 'm.id','m.dateCreated')
             ->orderBy('m.name','ASC');
         return $qb->getQuery()->getResult();
     }
