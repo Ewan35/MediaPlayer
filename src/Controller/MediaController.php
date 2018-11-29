@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class MediaController extends Controller
 {
@@ -29,15 +30,17 @@ class MediaController extends Controller
      */
     public function add(Request $request, EntityManagerInterface $em)
     {
-        $medias = new Media();
+        $media = new Media();
 
-        $form = $this->createForm(AddMediaType::class,$medias);
+        $media->setDateCreated(new \DateTime());
+
+        $form = $this->createForm(AddMediaType::class,$media);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $em->persist($medias);
+            $em->persist($media);
             $em->flush();
 
             $this->addFlash('success', 'Media successfully saved!');
@@ -55,7 +58,6 @@ class MediaController extends Controller
     public function update(Media $media, Request $request, EntityManagerInterface $em)
     {
         $form = $this->createForm(UpdateMediaType::class,$media);
-        $media->setDateCreated(now);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
