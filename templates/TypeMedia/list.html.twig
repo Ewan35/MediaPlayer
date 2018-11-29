@@ -1,17 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Madia types</h1>
-    <div class="media-list">
+    <h1>Media types</h1>
+    <div class="genre-list">
         {% for typeMedia in typeMedias %}
-            <div>
-                {{ typeMedia.name }}
-                <a href="{{ path('TypeMedia_update', {'id' : typeMedia.id }) }}" class="oi oi-delete update-media" data-glyph="pencil" title="Update media" data-id="{{ typeMedia.id }}" >Update</a>
-                <button class="oi oi-delete delete-media delete-modal" data-glyph="circle-x" title="Delete type media" data-id="{{ typeMedia.id }}" >Delete</button>
-            </div>
+                <div class="d-flex justify-content-between align-items-center" style="border:-1px;">
+                    {{ typeMedia.name }}
+                    <div style="border: none">
+                    <button type="button" class="btn btn-sm btn-outline-secondary btn-update"><a
+                                href="{{ path("TypeMedia_update", {"id": typeMedia.id}) }}">Update</a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary btn-delete"><a
+                                href="{{ path("TypeMedia_del", {"id": typeMedia.id}) }}">Delete</a>
+                    </button>
+                    </div>
+                </div>
         {% endfor %}
     </div>
 
-    <button><a href="{{ path('TypeMedia_add') }}">Add</a></button>
+    <button class="btnAdd orange"><a href="{{ path('TypeMedia_add') }}">Add</a></button>
 
 {% endblock %}

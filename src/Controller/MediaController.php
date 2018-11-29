@@ -84,7 +84,6 @@ class MediaController extends Controller
         if (!$media) {
             throw $this->createNotFoundException('Aucun fichier en base a cet id');
         }else{
-            $media->setIsPublished(false);
             $em->persist($media);
             $em->flush();
         }

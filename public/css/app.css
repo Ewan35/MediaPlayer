@@ -163,6 +163,17 @@ category
     border-radius: 4px;
 }
 
+.genre-list div{
+    display: block;
+    border: 1px solid #D3D3D3;
+    padding: 0px 5px;
+    margin: 10px 0;
+    position: relative;
+    border-radius: 4px;
+    background: #f7f7f7;
+}
+
+
 .media-meta {
     font-style: italic;
     margin-bottom: 10px;
@@ -410,13 +421,14 @@ form ul > li {
 
 .btnAdd {
     border-radius: 5px;
-    padding: 5px 15px;
-    font-size: 22px;
+    padding: 3px 13px;
+    font-size: 19px;
     text-decoration: none;
     margin: 10px;
     color: #fff;
     position: relative;
     display: inline-block;
+    margin-left: 0px;
 }
 
 .btnAdd a {

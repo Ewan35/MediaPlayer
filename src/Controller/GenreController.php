@@ -73,4 +73,20 @@ class GenreController extends Controller
             'GenreForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/Genre/del", name="Genre_del_default", defaults={"id":0})
+     * @Route("/Genre/del/{id}", name="Genre_del")
+     */
+    public function del(EntityManagerInterface $em,$id)
+    {
+        $genre = $em->find(Genre::class,$id);
+        if (!$genre) {
+            throw $this->createNotFoundException('Aucun fichier en base a cet id');
+        }else{
+            $em->persist($genre);
+            $em->flush();
+        }
+        return $this->redirectToRoute("Genre_list");
+    }
 }
