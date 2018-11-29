@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Madia types</h1>
+    <h1>Media types</h1>
     <div class="media-list">
         {% for typeMedia in typeMedias %}
             <div>
@@ -12,6 +12,6 @@
         {% endfor %}
     </div>
 
-    <button><a href="{{ path('TypeMedia_add') }}">Add</a></button>
+    <button class="btnAdd orange"><a href="{{ path('TypeMedia_add') }}">Add</a></button>
 
 {% endblock %}

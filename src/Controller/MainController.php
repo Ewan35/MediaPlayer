@@ -23,7 +23,11 @@ class MainController extends Controller
      */
     public function home()
     {
-        return $this->render("main/home.html.twig");
+        $user = $this->getUser();
+        dump($user);
+        return $this->render("main/home.html.twig", [
+            'user' => $user
+        ]);
     }
 
     /**
