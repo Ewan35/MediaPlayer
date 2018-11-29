@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Form\RegistrationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Entity\Utilisateur;
 use Symfony\Component\Routing\Annotation\Route;
@@ -26,7 +27,7 @@ class MainController extends Controller
     }
 
     /**
-     * @Route("/register", name="main_register")
+     * @Route("/register", name="register")
      */
     public function registration(Request $request,
                                  UserPasswordEncoderInterface $encoder,
