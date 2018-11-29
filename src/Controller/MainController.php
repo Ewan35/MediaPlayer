@@ -13,7 +13,7 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * Class MainController
  * @package App\Controller
- * @Route("/main", name="main_")
+ * @Route("/", name="main_")
  */
 class MainController extends Controller
 {
