@@ -2,8 +2,10 @@
     <ul>
         <li><a href="{{ path('main_home') }}">Home</a> </li>
         <li><a href="{{ path('media_list') }}">Medias</a> </li>
+        {% if isAdmin == true %}
         <li><a href="{{ path('Genre_list') }}">Genre</a> </li>
         <li><a href="{{ path('TypeMedia_list') }}">Media types</a> </li>
+        {% endif %}
         {% if userConnected == false %}
             <li><a href="{{ path('main_login') }}">Login</a> </li>
         {% else %}

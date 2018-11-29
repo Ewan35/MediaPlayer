@@ -16,10 +16,6 @@
                 </div>
         {% endfor %}
     </div>
-    <?php
-    echo isAdmin;
-    ?>
-{% if isAdmin == true %}
+
     <button class="btnAdd orange"><a href="{{ path('TypeMedia_add') }}">Add</a></button>
-{% endif %}
 {% endblock %}
