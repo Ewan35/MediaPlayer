@@ -16,6 +16,4 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 .idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
-.idea/workspace.xml
+/.idea/
