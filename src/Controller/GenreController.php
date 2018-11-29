@@ -21,6 +21,7 @@ class GenreController extends Controller
 
         return $this->render('Genre/list.html.twig', [
             'genres' => $genres,
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -45,7 +46,8 @@ class GenreController extends Controller
         }
 
         return $this->render('Genre/add.html.twig', [
-            'Genre' => $form->createView()
+            'Genre' => $form->createView(),
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -70,7 +72,8 @@ class GenreController extends Controller
 
 
         return $this->render('Genre/update.html.twig', [
-            'GenreForm' => $form->createView()
+            'GenreForm' => $form->createView(),
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -88,5 +91,15 @@ class GenreController extends Controller
             $em->flush();
         }
         return $this->redirectToRoute("Genre_list");
+    }
+
+    public function isConnected(){
+        $user = $this->getUser();
+        if ($user == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

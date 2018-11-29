@@ -4,7 +4,11 @@
         <li><a href="{{ path('media_list') }}">Medias</a> </li>
         <li><a href="{{ path('Genre_list') }}">Genre</a> </li>
         <li><a href="{{ path('TypeMedia_list') }}">Media types</a> </li>
-        <li><a href="{{ path('main_login') }}">Login</a> </li>
+        {% if userConnected == false %}
+            <li><a href="{{ path('main_login') }}">Login</a> </li>
+        {% else %}
+            <li><a href="{{ path('main_logout') }}">Logout</a> </li>
+        {% endif %}
         <li><a href="{{ path('main_register') }}">Register</a> </li>
     </ul>
 </nav>

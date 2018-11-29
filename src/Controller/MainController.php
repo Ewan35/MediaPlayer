@@ -24,9 +24,9 @@ class MainController extends Controller
     public function home()
     {
         $user = $this->getUser();
-        dump($user);
         return $this->render("main/home.html.twig", [
-            'user' => $user
+            'user' => $user,
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -56,7 +56,8 @@ class MainController extends Controller
         }
 
         return $this->render('main/register.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'userConnected' => $this->isConnected()
         ]);
 
     }
@@ -75,6 +76,7 @@ class MainController extends Controller
         return $this->render('main/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
+            'userConnected' => $this->isConnected()
         ));
     }
 
@@ -84,4 +86,14 @@ class MainController extends Controller
     public function logout(){
 
     }
+
+    public function isConnected(){
+        $user = $this->getUser();
+        if ($user == null) {
+            return false;
+        }
+            else {
+                return true;
+            }
+        }
 }

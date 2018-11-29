@@ -9,7 +9,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class MediaController extends Controller
 {
@@ -22,6 +21,7 @@ class MediaController extends Controller
 
         return $this->render('media/list.html.twig', [
             'medias' => $medias,
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -48,7 +48,9 @@ class MediaController extends Controller
         }
 
         return $this->render('media/add.html.twig', [
-            'mediaForm' => $form->createView()
+            'mediaForm' => $form->createView(),
+            'userConnected' => $this->isConnected()
+
         ]);
     }
 
@@ -70,7 +72,8 @@ class MediaController extends Controller
         }
 
         return $this->render('media/update.html.twig', [
-            'mediaForm' => $form->createView()
+            'mediaForm' => $form->createView(),
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -88,5 +91,15 @@ class MediaController extends Controller
             $em->flush();
         }
         return $this->redirectToRoute("media_list");
+    }
+
+    public function isConnected(){
+        $user = $this->getUser();
+        if ($user == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

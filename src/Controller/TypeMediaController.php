@@ -29,6 +29,7 @@ class TypeMediaController extends Controller
 
         return $this->render('TypeMedia/list.html.twig', [
             'typeMedias' => $typeMedias,
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -54,7 +55,8 @@ class TypeMediaController extends Controller
         }
 
         return $this->render('TypeMedia/add.html.twig', [
-            'TypeMediaForm' => $form->createView()
+            'TypeMediaForm' => $form->createView(),
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -79,7 +81,8 @@ class TypeMediaController extends Controller
 
 
         return $this->render('TypeMedia/update.html.twig', [
-            'TypeMediaForm' => $form->createView()
+            'TypeMediaForm' => $form->createView(),
+            'userConnected' => $this->isConnected()
         ]);
     }
 
@@ -89,15 +92,16 @@ class TypeMediaController extends Controller
      */
     public function del(EntityManagerInterface $em,TypeMedia $TypeMedia)
     {
-        //vérification côté serveur
-        if(count($TypeMedia->getIdeas()) > 0){
-            $this->addFlash('error', "You can't delete this media !");
-            return $this->redirectToRoute('TypeMedia_list');
-        }
 
-        $em->remove($TypeMedia);
-        $em->flush();
-        $this->addFlash("success", "Type media successfully deleted!");
-        return $this->redirectToRoute("TypeMedia_list");
+    }
+
+    public function isConnected(){
+        $user = $this->getUser();
+        if ($user == null) {
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }
