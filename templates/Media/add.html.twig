@@ -2,11 +2,11 @@
 
 {% block main %}
 
-    <h1>Add medias</h1>
+    <h2>Add medias</h2>
 
     {{ form_start(mediaForm, {'attr': {'novalidate': 'novalidate'}} ) }}
     {{ form_widget(mediaForm) }}
-    <button type="submit">Validate</button>
+    <button type="submit" class="btnValider orange">Validate</button>
     {{ form_end(mediaForm) }}
 
 {% endblock %}
